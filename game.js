@@ -17,14 +17,22 @@ class Game {
       this.announcement = `${player.selection} wins!!!`
       player.score++
     } else if (player.selection === "cat" && player.opponent === "mouse"|| "ferret") {
-
+      this.announcement = `${player.selection} wins!!!`
+      player.score++
     } else if (player.selection === "mouse" && player.opponent === "cat"|| "cucumber") {
-
+      this.announcement = `${player.selection} wins!!!`
+      player.score++
     } else if (player.selection === "ferret" && player.opponent === "mouse"|| "elephant"){
-
+      this.announcement = `${player.selection} wins!!!`
+      player.score++
     } else if (player.selection === "cucumber" && player.opponent === "cat"|| "ferret") {
-
+      this.announcement = `${player.selection} wins!!!`
+      player.score++
+    } else {
+      this.announcement = `Oh no! the ${player.selection} lost...`
+      player.opponentScore++
     }
-
   }
+
+  
 }
