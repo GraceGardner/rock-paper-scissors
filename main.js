@@ -8,3 +8,9 @@ var ferretButton = document.getElementById("ferret");
 var cucumberButton = document.getElementById("cucumber");
 var playerScore = document.getElementById("playerScore");
 var computerScore = document.getElementById("computerScore");
+
+mouseButton.addEventListener("click", );
+elephantButton.addEventListener("click", );
+catButton.addEventListener("click", );
+ferretButton.addEventListener("click", );
+cucumberButton.addEventListener("click", );
