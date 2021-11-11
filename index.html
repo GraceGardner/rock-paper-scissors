@@ -9,20 +9,20 @@
     <section class="sidebar-left">
       <img class="bar-elements" src="./assets/player.png" alt="gamer icon">
       <h3 class="bar-elements">Player1</h3>
-      <p class="bar-elements">Wins : 0</p>
-      <button class="game-changer" type="button" name="button">CHANGE GAME</button>
+      <p class="bar-elements" id="playerScore">Wins : 0</p>
+      <button class="game-changer" type="button" name="button" id="gameButton">CHANGE GAME</button>
     </section>
     <section class="middle">
       <main>
         <h1>Rock, Paper, Scissors</h1>
         <h2>Choose your fighter!</h2>
-        <button class="easy-rules game-changer">
+        <button class="easy-rules game-changer" id="easyGame">
           <h3 class="game-changer">CLASSIC</h3>
           <p class="game-changer">mouse > elephant</p><br>
           <p class="game-changer">elephant > cat</p><br>
           <p class="game-changer">cat > mouse</p>
         </button>
-        <button class="hard-rules game-changer">
+        <button class="hard-rules game-changer" id="difficultGame">
           <h3 class="game-changer">DIFFICULT</h3>
           <p class="game-changer">mouse > elephant & cucumber</p><br>
           <p class="game-changer">elephant > cucumber & cat</p><br>
@@ -31,18 +31,18 @@
           <p class="game-changer">cucumber > ferret & cat</p>
         </button>
         <section>
-          <button type="button" name="button"><img src="./assets/mouse.png" alt="mouse"></button>
-          <button type="button" name="button"><img src="./assets/elephant.png" alt="elephant"></button>
-          <button type="button" name="button"><img src="./assets/cat.png" alt="cat"></button>
-          <button type="button" name="button"><img src="./assets/ferret.png" alt="ferret"></button>
-          <button type="button" name="button"><img src="./assets/cucumber.png" alt="cucumber"></button>
+          <button type="button" name="button" id="mouse"><img src="./assets/mouse.png" alt="mouse"></button>
+          <button type="button" name="button" id="elephant"><img src="./assets/elephant.png" alt="elephant"></button>
+          <button type="button" name="button" id="cat"><img src="./assets/cat.png" alt="cat"></button>
+          <button type="button" name="button" id="ferret"><img src="./assets/ferret.png" alt="ferret"></button>
+          <button type="button" name="button" id="cucumber"><img src="./assets/cucumber.png" alt="cucumber"></button>
         </section>
       </main>
     </section>
     <section class="sidebar-right">
       <img class="bar-elements" src="./assets/computer.png" alt="">
       <h3 class="bar-elements">Computer</h3>
-      <p class="bar-elements">Wins : 0</p>
+      <p class="bar-elements" id="computerScore">Wins : 0</p>
     </section>
   </body>
   <script type="text/javascript" src="main.js"></script>
