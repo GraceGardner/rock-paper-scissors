@@ -1,0 +1,36 @@
+* {
+  background-color: #4CD3C2;
+  color: #363636;
+}
+
+button {
+  border: 0;
+}
+
+body {
+  display: flex;
+  flex: row;
+}
+
+main {
+
+}
+
+.game-changer{
+  background-color: #FFBCBC;
+}
+
+.bar-elements{
+    background-color: #B7EFCD;
+  }
+
+.sidebar-left {
+  background-color: #B7EFCD;
+  justify-content: flex-start;
+
+}
+
+.sidebar-right {
+  background-color: #B7EFCD;
+  justify-content: flex-end;
+}

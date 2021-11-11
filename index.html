@@ -2,23 +2,50 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="./styles.css"/>
     <title></title>
   </head>
   <body>
     <section class="sidebar-left">
-      <img src="./assets/player.png" alt="gamer icon">
-      <h3>Player1</h3>
-      <p>Wins : 0</p>
+      <img class="bar-elements" src="./assets/player.png" alt="gamer icon">
+      <h3 class="bar-elements">Player1</h3>
+      <p class="bar-elements">Wins : 0</p>
+      <button class="game-changer" type="button" name="button">CHANGE GAME</button>
     </section>
     <section>
       <main>
-
+        <h1>Rock, Paper, Scissors</h1>
+        <h2>Choose your fighter!</h2>
+        <button class="easy-rules">
+          <h3>CLASSIC</h3>
+          <p>mouse > elephant</p><br>
+          <p>elephant > cat</p><br>
+          <p>cat > mouse</p>
+        </button>
+        <button class="hard-rules">
+          <h3>DIFFICULT</h3>
+          <p>mouse > elephant & cucumber</p><br>
+          <p>elephant > cucumber & cat</p><br>
+          <p>cat > mouse & ferret</p><br>
+          <p>ferret > mouse & elephant</p><br>
+          <p>cucumber > ferret & cat</p>
+        </button>
+        <section>
+          <button type="button" name="button"><img src="./assets/mouse.png" alt="mouse"></button>
+          <button type="button" name="button"><img src="./assets/elephant.png" alt="elephant"></button>
+          <button type="button" name="button"><img src="./assets/cat.png" alt="cat"></button>
+          <button type="button" name="button"><img src="./assets/ferret.png" alt="ferret"></button>
+          <button type="button" name="button"><img src="./assets/cucumber.png" alt="cucumber"></button>
+        </section>
       </main>
     </section>
     <section class="sidebar-right">
-      <img src="./assets/computer.png" alt="">
-      <h3>Computer</h3>
-      <p>Wins : 0</p>
+      <img class="bar-elements" src="./assets/computer.png" alt="">
+      <h3 class="bar-elements">Computer</h3>
+      <p class="bar-elements">Wins : 0</p>
     </section>
   </body>
+  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="player.js"></script>
+  <script type="text/javascript" src="computer.js"></script>
 </html>
