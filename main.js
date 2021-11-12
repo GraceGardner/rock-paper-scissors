@@ -1,3 +1,5 @@
+
+
 var easyGame = document.getElementById("easyGame");
 var difficultGame = document.getElementById("difficultGame");
 var gameButton = document.getElementById("gameButton");
@@ -12,30 +14,40 @@ var computerScore = document.getElementById("computerScore");
 var player = new Player();
 var game = new Game();
 
-mouseButton.addEventListener("click", );
-elephantButton.addEventListener("click", );
-catButton.addEventListener("click", );
-ferretButton.addEventListener("click", );
-cucumberButton.addEventListener("click", );
+mouseButton.addEventListener("click", mouseClick);
+elephantButton.addEventListener("click", elephantClick);
+catButton.addEventListener("click", catClick);
+ferretButton.addEventListener("click", ferretClick);
+cucumberButton.addEventListener("click", cucumberClick);
 
 function mouseClick() {
   player.selection = "mouse";
+  player.setOpponent()
+  game.decareWinner(player);
 }
 
 function elephantClick() {
   player.selection = "elephant";
+  player.setOpponent()
+  game.decareWinner(player);
 }
 
 function catClick() {
   player.selection = "cat";
+  player.setOpponent()
+  game.decareWinner(player);
 }
 
 function ferretClick() {
   player.selection = "ferret";
+  player.setOpponent()
+  game.decareWinner(player);
 }
 
 function cucumberClick() {
   player.selection = "cucumber";
+  player.setOpponent();
+  game.decareWinner(player);
 }
 
 function showHide(toShow, toHide) {
@@ -48,5 +60,5 @@ function show(toShow) {
 }
 
 function hide(toHide) {
-  toHide.classList.add("hidden")
+  toHide.classList.add("hidden");
 }
