@@ -1,5 +1,3 @@
-
-
 var easyGame = document.getElementById("easyGame");
 var difficultGame = document.getElementById("difficultGame");
 var gameButton = document.getElementById("gameButton");
@@ -13,12 +11,38 @@ var computerScore = document.getElementById("computerScore");
 
 var player = new Player();
 var game = new Game();
+var classicFighters = [mouseButton, elephantButton, catButton];
+var difficultFighters = [mouseButton, elephantButton, catButton, ferretButton, cucumberButton];
 
 mouseButton.addEventListener("click", mouseClick);
 elephantButton.addEventListener("click", elephantClick);
 catButton.addEventListener("click", catClick);
 ferretButton.addEventListener("click", ferretClick);
 cucumberButton.addEventListener("click", cucumberClick);
+easyGame.addEventListener("click", setEasy);
+difficultGame.addEventListener("click", setDifficult);
+
+function showFighters(fighters) {
+  for (var i = 0; i < fighters.length; i++){
+    show(fighters[i]);
+  }
+};
+
+function setEasy() {
+  game.difficulty = "classic";
+  game.selectDifficulty(player);
+  hide(easyGame);
+  hide(difficultGame);
+  showFighters(classicFighters)
+}
+
+function setDifficult() {
+  game.difficulty = "difficult"
+  game.selectDifficulty(player);
+  hide(easyGame);
+  hide(difficultGame);
+  showFighters(difficultFighters)
+}
 
 function mouseClick() {
   player.selection = "mouse";
