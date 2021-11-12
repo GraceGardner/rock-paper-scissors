@@ -101,3 +101,7 @@ p {
   background-color: #B7EFCD;
   justify-content: flex-end;
 }
+
+.hidden {
+	display: none;
+}

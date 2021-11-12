@@ -1,7 +1,7 @@
 class Game {
   constructor() {
-    this.difficulty = ;
-    this.announcement = ;
+    this.difficulty = ""
+    this.announcement = ""
   }
 
   selectDifficulty(player) {
@@ -13,19 +13,33 @@ class Game {
   }
 
   decareWinner(player) {
-    if (player.selection === "elephant" && player.opponent === "cat"|| "cucumber"){
+    if (player.selection === player.opponent) {
+      this.announcement = `DRAW!!!`
+    } else if(player.selection === "elephant" && player.opponent === "cucumber" || player.opponent === "cat") {
       this.announcement = `${player.selection} wins!!!`
       player.score++
-    } else if (player.selection === "cat" && player.opponent === "mouse"|| "ferret") {
+    } else if (player.selection === "cat" && player.opponent === "mouse") {
       this.announcement = `${player.selection} wins!!!`
       player.score++
-    } else if (player.selection === "mouse" && player.opponent === "cat"|| "cucumber") {
+    } else if (player.selection === "cat" && player.opponent === "ferret") {
       this.announcement = `${player.selection} wins!!!`
       player.score++
-    } else if (player.selection === "ferret" && player.opponent === "mouse"|| "elephant"){
+    } else if (player.selection === "mouse" && player.opponent === "elephant") {
       this.announcement = `${player.selection} wins!!!`
       player.score++
-    } else if (player.selection === "cucumber" && player.opponent === "cat"|| "ferret") {
+    } else if (player.selection === "mouse" && player.opponent === "cucumber") {
+      this.announcement = `${player.selection} wins!!!`
+      player.score++
+    } else if (player.selection === "ferret" && player.opponent === "elephant"){
+      this.announcement = `${player.selection} wins!!!`
+      player.score++
+    } else if (player.selection === "ferret" && player.opponent === "mouse"){
+      this.announcement = `${player.selection} wins!!!`
+      player.score++
+    }else if (player.selection === "cucumber" && player.opponent === "ferret") {
+      this.announcement = `${player.selection} wins!!!`
+      player.score++
+    } else if (player.selection === "cucumber" && player.opponent === "cat") {
       this.announcement = `${player.selection} wins!!!`
       player.score++
     } else {
@@ -34,5 +48,5 @@ class Game {
     }
   }
 
-  
+
 }
