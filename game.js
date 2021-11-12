@@ -18,28 +18,16 @@ class Game {
     } else if(player.selection === "elephant" && player.opponent === "cucumber" || player.opponent === "cat") {
       this.announcement = `${player.selection} wins!!!`
       player.score++
-    } else if (player.selection === "cat" && player.opponent === "mouse") {
+    } else if (player.selection === "cat" && player.opponent === "mouse" || player.opponent === "ferret") {
       this.announcement = `${player.selection} wins!!!`
       player.score++
-    } else if (player.selection === "cat" && player.opponent === "ferret") {
+    } else if (player.selection === "mouse" && player.opponent === "elephant" || player.opponent === "cucumber") {
       this.announcement = `${player.selection} wins!!!`
       player.score++
-    } else if (player.selection === "mouse" && player.opponent === "elephant") {
+    } else if (player.selection === "ferret" && player.opponent === "elephant" || player.opponent === "mouse"){
       this.announcement = `${player.selection} wins!!!`
       player.score++
-    } else if (player.selection === "mouse" && player.opponent === "cucumber") {
-      this.announcement = `${player.selection} wins!!!`
-      player.score++
-    } else if (player.selection === "ferret" && player.opponent === "elephant"){
-      this.announcement = `${player.selection} wins!!!`
-      player.score++
-    } else if (player.selection === "ferret" && player.opponent === "mouse"){
-      this.announcement = `${player.selection} wins!!!`
-      player.score++
-    }else if (player.selection === "cucumber" && player.opponent === "ferret") {
-      this.announcement = `${player.selection} wins!!!`
-      player.score++
-    } else if (player.selection === "cucumber" && player.opponent === "cat") {
+    } else if (player.selection === "cucumber" && player.opponent === "ferret" || player.opponent === "cat") {
       this.announcement = `${player.selection} wins!!!`
       player.score++
     } else {
