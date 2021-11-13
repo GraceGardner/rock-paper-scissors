@@ -10,6 +10,8 @@ var playerScore = document.getElementById("playerScore");
 var computerScore = document.getElementById("computerScore");
 var fighters = document.getElementById("fighters");
 var battleZone = document.getElementById("battleZone");
+var playerChoice = document.getElementById("playerChoice");
+var opponentChoice = document.getElementById("opponentChoice");
 
 var game = new Game();
 var player = game.player;
@@ -74,7 +76,7 @@ function hide(toHide) {
   toHide.classList.add("hidden");
 }
 
-function displayFighter() {
+function displayFighter(player) {
 
 }
 
