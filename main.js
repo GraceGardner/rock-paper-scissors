@@ -8,17 +8,17 @@ var ferretButton = document.getElementById("ferret");
 var cucumberButton = document.getElementById("cucumber");
 var playerScore = document.getElementById("playerScore");
 var computerScore = document.getElementById("computerScore");
+var fighters = document.getElementById("fighters");
+var battleZone = document.getElementById("battleZone");
 
-var player = new Player();
 var game = new Game();
+var player = game.player;
 var classicFighters = [mouseButton, elephantButton, catButton];
 var difficultFighters = [mouseButton, elephantButton, catButton, ferretButton, cucumberButton];
 
-mouseButton.addEventListener("click", mouseClick);
-elephantButton.addEventListener("click", elephantClick);
-catButton.addEventListener("click", catClick);
-ferretButton.addEventListener("click", ferretClick);
-cucumberButton.addEventListener("click", cucumberClick);
+fighters.addEventListener("click", function(event) {
+  click(event.target.alt)
+});
 easyGame.addEventListener("click", setEasy);
 difficultGame.addEventListener("click", setDifficult);
 
@@ -27,6 +27,16 @@ function showFighters(fighters) {
     show(fighters[i]);
   }
 };
+
+function displayFighters() {
+  // hideAll()
+  showHide(battleZone, fighters);
+
+}
+
+function displayWinner() {
+
+}
 
 function setEasy() {
   game.difficulty = "classic";
@@ -44,34 +54,11 @@ function setDifficult() {
   showFighters(difficultFighters)
 }
 
-function mouseClick() {
-  player.selection = "mouse";
+function click(selection) {
+  player.selection = `${selection}`;
   player.setOpponent()
-  game.decareWinner(player);
-}
-
-function elephantClick() {
-  player.selection = "elephant";
-  player.setOpponent()
-  game.decareWinner(player);
-}
-
-function catClick() {
-  player.selection = "cat";
-  player.setOpponent()
-  game.decareWinner(player);
-}
-
-function ferretClick() {
-  player.selection = "ferret";
-  player.setOpponent()
-  game.decareWinner(player);
-}
-
-function cucumberClick() {
-  player.selection = "cucumber";
-  player.setOpponent();
-  game.decareWinner(player);
+  game.declareWinner(player);
+  displayFighters()
 }
 
 function showHide(toShow, toHide) {
@@ -86,3 +73,15 @@ function show(toShow) {
 function hide(toHide) {
   toHide.classList.add("hidden");
 }
+
+function displayFighter() {
+
+}
+
+// function hideAll() {
+//   hide(elephantButton);
+//   hide(mouseButton);
+//   hide(catButton);
+//   hide(ferretButton);
+//   hide(cucumberButton);
+// }
