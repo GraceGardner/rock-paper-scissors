@@ -19,12 +19,13 @@ class Player {
   }
 
   score(winner) {
-    var currentScore = localStorage.getItem(winner) || 0
-    localStorage.setItem(winner, currentScore++)
+    var currentScore = JSON.parse(localStorage.getItem(winner)) || 0
+    currentScore++
+    localStorage.setItem(winner, currentScore)
   }
 
   displayScore(player) {
-    return localStorage.getItem(player) || 0
+    return JSON.parse(localStorage.getItem(player)) || 0
   }
 
 

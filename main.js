@@ -68,6 +68,7 @@ function click(selection) {
   game.declareWinner(player);
   displayFighter(player)
   displayBattleZone()
+  updateScore()
 }
 
 function showHide(toShow, toHide) {
@@ -98,4 +99,13 @@ function celebration() {
     sadParty.src = `./assets/${player.selection}Loss.gif`;
     showHide(loss, battleZone)
   }
+}
+
+function updateScore() {
+  playerScore.innerText = `score : ${game.player.displayScore('playerScore')}`
+  computerScore.innerText = `score : ${game.player.displayScore('opponentScore')}`
+}
+
+function reset() {
+
 }
