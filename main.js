@@ -30,10 +30,9 @@ function showFighters(fighters) {
   }
 };
 
-function displayFighters() {
+function displayBattleZone() {
   // hideAll()
   showHide(battleZone, fighters);
-
 }
 
 function displayWinner() {
@@ -60,7 +59,8 @@ function click(selection) {
   player.selection = `${selection}`;
   player.setOpponent()
   game.declareWinner(player);
-  displayFighters()
+  displayFighter(player)
+  displayBattleZone()
 }
 
 function showHide(toShow, toHide) {
@@ -77,7 +77,10 @@ function hide(toHide) {
 }
 
 function displayFighter(player) {
-
+  playerChoice.src = `./assets/${player.selection}.png`;
+  playerChoice.alt = `${player.selection}`;
+  opponentChoice.src = `./assets/${player.opponent}.png`;
+  opponentChoice.alt = `${player.opponent}`;
 }
 
 // function hideAll() {
