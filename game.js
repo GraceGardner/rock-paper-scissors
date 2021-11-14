@@ -26,6 +26,7 @@ class Game {
     } else if (this.player.opponent === this.fighters[this.player.selection][0]  || this.player.opponent === this.fighters[this.player.selection][1]) {
       this.announcement = `The ${player.selection} wins!!!`
       this.player.score("playerScore");
+      this.player.wins = true
     } else {
       this.announcement = `Oh no! the ${this.player.selection} lost...`
       this.player.score("opponentScore");

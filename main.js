@@ -12,11 +12,17 @@ var fighters = document.getElementById("fighters");
 var battleZone = document.getElementById("battleZone");
 var playerChoice = document.getElementById("playerChoice");
 var opponentChoice = document.getElementById("opponentChoice");
+var victoryZone = document.getElementById("victoryZone");
+var win = document.getElementById("win");
+var loss = document.getElementById("loss");
+var happyParty = document.getElementById("happyParty");
+var sadParty = document.getElementById("sadParty");
 
 var game = new Game();
 var player = game.player;
 var classicFighters = [mouseButton, elephantButton, catButton];
 var difficultFighters = [mouseButton, elephantButton, catButton, ferretButton, cucumberButton];
+var result = "";
 
 fighters.addEventListener("click", function(event) {
   click(event.target.alt)
@@ -31,12 +37,13 @@ function showFighters(fighters) {
 };
 
 function displayBattleZone() {
-  // hideAll()
   showHide(battleZone, fighters);
+  setTimeout(function() {displayWinner()}, 1000);
 }
 
 function displayWinner() {
-
+  showHide(victoryZone, battleZone)
+  celebration();
 }
 
 function setEasy() {
@@ -83,10 +90,12 @@ function displayFighter(player) {
   opponentChoice.alt = `${player.opponent}`;
 }
 
-// function hideAll() {
-//   hide(elephantButton);
-//   hide(mouseButton);
-//   hide(catButton);
-//   hide(ferretButton);
-//   hide(cucumberButton);
-// }
+function celebration() {
+  if (player.wins) {
+    happyParty.src = `./assets/${player.selection}Celebration.gif`;
+    showHide(win, battleZone)
+  } else {
+    sadParty.src = `./assets/${player.selection}Loss.gif`;
+    showHide(loss, battleZone)
+  }
+}

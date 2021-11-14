@@ -1,6 +1,7 @@
 class Player {
   constructor() {
     this.selection = ""
+    this.wins = false;
     this.fighters = ["elephant", "cat", "mouse", "ferret", "cucumber"]
     this.opponent = ""
   }
