@@ -105,3 +105,9 @@ p {
 .hidden {
 	display: none;
 }
+
+.loss-format {
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+}
