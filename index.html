@@ -30,12 +30,28 @@
           <p class="game-changer">ferret > mouse & elephant</p><br>
           <p class="game-changer">cucumber > ferret & cat</p>
         </button>
-        <section>
-          <button class="hidden" type="button" name="button" id="mouse"><img src="./assets/mouse.png" alt="mouse"></button>
-          <button class="hidden" type="button" name="button" id="elephant"><img src="./assets/elephant.png" alt="elephant"></button>
-          <button class="hidden" type="button" name="button" id="cat"><img src="./assets/cat.png" alt="cat"></button>
-          <button class="hidden" type="button" name="button" id="ferret"><img src="./assets/ferret.png" alt="ferret"></button>
-          <button class="hidden" type="button" name="button" id="cucumber"><img src="./assets/cucumber.png" alt="cucumber"></button>
+        <section id="fighters">
+          <button class="hidden" type="button" name="button" id="mouse"><img src="./assets/mouse.png" alt="mouse"><br/><img class="emoji hidden" src="./assets/player.png" alt="player emoji" id="mousePick"/></button>
+          <button class="hidden" type="button" name="button" id="elephant"><img src="./assets/elephant.png" alt="elephant"><br/><img class="emoji hidden" src="./assets/player.png"/alt="player emoji" id="elephantPick"></button>
+          <button class="hidden" type="button" name="button" id="cat"><img src="./assets/cat.png" alt="cat"><br/><img class="emoji hidden" src="./assets/player.png" alt="player emoji" id="catPick"/></button>
+          <button class="hidden" type="button" name="button" id="ferret"><img src="./assets/ferret.png" alt="ferret"><br/><img class="emoji hidden" src="./assets/player.png" alt="player emoji" id="ferretPick"/></button>
+          <button class="hidden" type="button" name="button" id="cucumber"><img src="./assets/cucumber.png" alt="cucumber"><br/><img class="emoji hidden" src="./assets/player.png" alt="player emoji" id="cucumberPick"/></button>
+        </section>
+        <section class="hidden" id="battleZone">
+          <img id="playerChoice" src="" alt="" />
+          <!-- Put stupid emojis -->
+          <img id="opponentChoice" src="" alt="" />
+        </section>
+        <section id="victoryZone">
+          <section class="hidden loss-format" id="loss">
+            <img class="hidden" id="sadCloud" src="./assets/sadCloud.gif" alt="rain cloud"/>
+            <img id="sadParty" src="" alt=""/>
+          </section>
+          <section class="hidden" id="win">
+            <img src="./assets/stars.gif" alt="stars">
+            <img id="happyParty" src="" alt="">
+            <img src="./assets/stars.gif" alt="stars">
+          </section>
         </section>
       </main>
     </section>

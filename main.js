@@ -8,70 +8,63 @@ var ferretButton = document.getElementById("ferret");
 var cucumberButton = document.getElementById("cucumber");
 var playerScore = document.getElementById("playerScore");
 var computerScore = document.getElementById("computerScore");
+var fighters = document.getElementById("fighters");
+var battleZone = document.getElementById("battleZone");
+var playerChoice = document.getElementById("playerChoice");
+var opponentChoice = document.getElementById("opponentChoice");
+var victoryZone = document.getElementById("victoryZone");
+var win = document.getElementById("win");
+var loss = document.getElementById("loss");
+var happyParty = document.getElementById("happyParty");
+var sadParty = document.getElementById("sadParty");
+var sadCloud = document.getElementById("sadCloud");
 
-var player = new Player();
 var game = new Game();
+var player = game.player;
 var classicFighters = [mouseButton, elephantButton, catButton];
 var difficultFighters = [mouseButton, elephantButton, catButton, ferretButton, cucumberButton];
+var result = "";
 
-mouseButton.addEventListener("click", mouseClick);
-elephantButton.addEventListener("click", elephantClick);
-catButton.addEventListener("click", catClick);
-ferretButton.addEventListener("click", ferretClick);
-cucumberButton.addEventListener("click", cucumberClick);
+document.addEventListener("load", updateScore);
+fighters.addEventListener("click", function(event) {
+  click(event.target.alt)
+});
 easyGame.addEventListener("click", setEasy);
 difficultGame.addEventListener("click", setDifficult);
 
-function showFighters(fighters) {
-  for (var i = 0; i < fighters.length; i++){
-    show(fighters[i]);
-  }
-};
+function displayBattleZone() {
+  show([document.getElementById(`${player.selection}Pick`)])
+  setTimeout(function() {showHide([battleZone], [fighters])}, 300);
+  setTimeout(function() {displayWinner()}, 1000);
+  setTimeout(function() {reset()}, 3000);
+}
+
+function displayWinner() {
+  showHide([victoryZone], [battleZone])
+  celebration();
+}
 
 function setEasy() {
   game.difficulty = "classic";
   game.selectDifficulty(player);
-  hide(easyGame);
-  hide(difficultGame);
-  showFighters(classicFighters)
+  hide([easyGame, difficultGame]);
+  show(classicFighters)
 }
 
 function setDifficult() {
   game.difficulty = "difficult"
   game.selectDifficulty(player);
-  hide(easyGame);
-  hide(difficultGame);
-  showFighters(difficultFighters)
+  hide([easyGame, difficultGame]);
+  show(difficultFighters)
 }
 
-function mouseClick() {
-  player.selection = "mouse";
+function click(selection) {
+  player.selection = `${selection}`;
   player.setOpponent()
-  game.decareWinner(player);
-}
-
-function elephantClick() {
-  player.selection = "elephant";
-  player.setOpponent()
-  game.decareWinner(player);
-}
-
-function catClick() {
-  player.selection = "cat";
-  player.setOpponent()
-  game.decareWinner(player);
-}
-
-function ferretClick() {
-  player.selection = "ferret";
-  player.setOpponent()
-  game.decareWinner(player);
-}
-
-function cucumberClick() {
-  player.selection = "cucumber";
-  player.setOpponent();
-  game.decareWinner(player);
+  game.declareWinner(player);
+  displayFighter(player)
+  displayBattleZone()
+  updateScore()
 }
 
 function showHide(toShow, toHide) {
@@ -80,9 +73,50 @@ function showHide(toShow, toHide) {
 }
 
 function show(toShow) {
-  toShow.classList.remove("hidden");
+  for (var i = 0; i < toShow.length; i++){
+    toShow[i].classList.remove("hidden");
+  }
 }
 
 function hide(toHide) {
-  toHide.classList.add("hidden");
+  for (var i = 0; i < toHide.length; i++){
+    toHide[i].classList.add("hidden");
+  }
+}
+
+// function displayEmoji(player) {
+//   show([document.getElementById(`${player.selection}Pick`)])
+// }
+
+function displayFighter(player) {
+  playerChoice.src = `./assets/${player.selection}.png`;
+  playerChoice.alt = `${player.selection}`;
+  opponentChoice.src = `./assets/${player.opponent}.png`;
+  opponentChoice.alt = `${player.opponent}`;
+}
+
+function celebration() {
+  if (player.wins) {
+    happyParty.src = `./assets/${player.selection}Celebration.gif`;
+    showHide([win], [battleZone, loss])
+  } else {
+    sadParty.src = `./assets/${player.selection}Loss.gif`;
+    showHide([loss, sadCloud], [battleZone, win])
+  }
+}
+
+function updateScore() {
+  playerScore.innerText = `Wins : ${game.player.displayScore('playerScore')}`
+  computerScore.innerText = `Wins : ${game.player.displayScore('opponentScore')}`
+}
+
+function reset() {
+  showHide([fighters], [victoryZone, sadCloud, document.getElementById(`${player.selection}Pick`)])
+  happyParty.src = "";
+  sadParty.src = "";
+  player.wins = false;
+}
+
+function changeGame() {
+
 }

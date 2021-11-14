@@ -1,16 +1,10 @@
 class Player {
   constructor() {
     this.selection = ""
-    this.score = 0
-    this.fighters= ["elephant", "cat", "mouse", "ferret", "cucumber"]
+    this.wins = false;
+    this.fighters = ["elephant", "cat", "mouse", "ferret", "cucumber"]
     this.opponent = ""
-    this.opponentScore = 0
   }
-  //
-  // makeSelection(selection) {
-  //   this.selection = selection;
-  //   this.randomizeSelection();
-  // }
 
   recordScore() {
     this.score++;
@@ -23,6 +17,17 @@ class Player {
   randomize(array) {
     return Math.floor(Math.random() * array.length);
   }
+
+  score(winner) {
+    var currentScore = JSON.parse(localStorage.getItem(winner)) || 0
+    currentScore++
+    localStorage.setItem(winner, currentScore)
+  }
+
+  displayScore(player) {
+    return JSON.parse(localStorage.getItem(player)) || 0
+  }
+
 
 
 }
