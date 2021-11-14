@@ -33,7 +33,8 @@ easyGame.addEventListener("click", setEasy);
 difficultGame.addEventListener("click", setDifficult);
 
 function displayBattleZone() {
-  showHide([battleZone], [fighters]);
+  show([document.getElementById(`${player.selection}Pick`)])
+  setTimeout(function() {showHide([battleZone], [fighters])}, 300);
   setTimeout(function() {displayWinner()}, 1000);
   setTimeout(function() {reset()}, 3000);
 }
@@ -83,6 +84,10 @@ function hide(toHide) {
   }
 }
 
+// function displayEmoji(player) {
+//   show([document.getElementById(`${player.selection}Pick`)])
+// }
+
 function displayFighter(player) {
   playerChoice.src = `./assets/${player.selection}.png`;
   playerChoice.alt = `${player.selection}`;
@@ -106,7 +111,7 @@ function updateScore() {
 }
 
 function reset() {
-  showHide([fighters], [victoryZone, sadCloud])
+  showHide([fighters], [victoryZone, sadCloud, document.getElementById(`${player.selection}Pick`)])
   happyParty.src = "";
   sadParty.src = "";
   player.wins = false;
