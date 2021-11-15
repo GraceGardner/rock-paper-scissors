@@ -4,6 +4,7 @@ class Game {
     this.announcement = ""
     this.player = new Player("player", "./assets/player.png", "playerScore")
     this.computer = new Player("computer", "./assets/computer.png", "opponentScore")
+    this.choices = ["elephant", "cat", "mouse", "ferret", "cucumber"];
     this.fighters = {
       elephant: ["cucumber", "cat"],
       cat: ["mouse", "ferret"],
@@ -13,15 +14,15 @@ class Game {
     }
   }
 
-  selectDifficulty(player) {
+  selectDifficulty() {
     if (this.difficulty === "classic") {
-      this.player.fighters = ["elephant", "cat", "mouse"];
+      this.choices = ["elephant", "cat", "mouse"];
     } else if (this.difficulty === "difficult") {
-      this.player.fighters = ["elephant", "cat", "mouse", "ferret", "cucumber"];
+      this.choices = ["elephant", "cat", "mouse", "ferret", "cucumber"];
     }
   }
 
-  declareWinner(player) {
+  declareWinner() {
     if (this.player.selection === this.computer.selection) {
       this.announcement = `DRAW!!!`
     } else if (this.computer === this.fighters[this.player.selection][0]  || this.computer === this.fighters[this.player.selection][1]) {
