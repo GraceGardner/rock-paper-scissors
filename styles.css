@@ -50,6 +50,8 @@ table {
 * {
   background-color: #4CD3C2;
   color: #363636;
+	font-family: 'Lato', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 
 button {
@@ -106,6 +108,17 @@ p {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.player {
+    max-width: 100px;
+    margin-top: 4%;
+    margin-bottom: 5%;
+}
+
+.game-changer {
+  padding: 5px;
+  margin: 3%;
 }
 
 .emoji {
