@@ -19,25 +19,30 @@ var happyParty = document.getElementById("happyParty");
 var sadParty = document.getElementById("sadParty");
 var sadCloud = document.getElementById("sadCloud");
 var emojis = document.querySelectorAll(".emoji");
+var message = document.getElementById("message");
+var header = document.getElementById("header");
 
 var game = new Game();
-var player = game.player;
 var classicFighters = [mouseButton, elephantButton, catButton];
 var difficultFighters = [mouseButton, elephantButton, catButton, ferretButton, cucumberButton];
 var result = "";
 var loading = false;
+
 
 document.addEventListener("load", updateScore());
 gameButton.addEventListener("click", changeGame)
 easyGame.addEventListener("click", setEasy);
 difficultGame.addEventListener("click", setDifficult);
 fighters.addEventListener("click", function(event) {
-  click(event.target.alt)
+  var eventTarget = event.target.alt
+  if (eventTarget){
+  click(eventTarget)
+}
 });
 
 
 function displayBattleZone() {
-  show([document.getElementById(`${player.selection}Pick`)])
+  show([document.getElementById(`${game.player.selection}Pick`)])
   setTimeout(function() {showHide([battleZone], [fighters])}, 300);
   setTimeout(function() {displayWinner()}, 1000);
   setTimeout(function() {reset()}, 3000);
@@ -49,18 +54,23 @@ function displayWinner() {
 }
 
 function setEasy() {
+  loading = false;
   game.difficulty = "classic";
+  message.innerText = "choose your fighter"
   game.selectDifficulty(player);
   hide([easyGame, difficultGame, ferretButton, cucumberButton]);
-  show([fighters]);
+  show([fighters, gameButton]);
   show(classicFighters);
 }
 
 function setDifficult() {
+  loading = false;
   game.difficulty = "difficult"
+  header.innerText = "Elephant, Mouse, Cat, Ferret, Cucumber"
+  message.innerText = "choose your fighter"
   game.selectDifficulty(player);
   hide([easyGame, difficultGame]);
-  show([fighters]);
+  show([fighters, gameButton]);
   show(difficultFighters);
 }
 
@@ -102,6 +112,7 @@ function displayFighter(player) {
 }
 
 function celebration() {
+  message.innerText = game.announcement;
   if (player.wins) {
     happyParty.src = `./assets/${player.selection}Celebration.gif`;
     showHide([win], [battleZone, loss])
@@ -117,14 +128,17 @@ function updateScore() {
 }
 
 function reset() {
+  loading = false;
   showHide([fighters], [victoryZone, sadCloud, document.getElementById(`${player.selection}Pick`)])
   show([gameButton])
   happyParty.src = "";
   sadParty.src = "";
   player.wins = false;
-  loading = false;
+  message.innerText = "choose your fighter"
 }
 
 function changeGame() {
-  showHide([easyGame, difficultGame], [battleZone, victoryZone, fighters])
+  showHide([easyGame, difficultGame], [battleZone, victoryZone, fighters, gameButton])
+  message.innerText = "choose your game"
+  header.innerText = "Elephant, Mouse, Cat"
 }

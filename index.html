@@ -11,19 +11,19 @@
       <img class="bar-elements player" src="./assets/player.png" alt="gamer icon">
       <h3 class="bar-elements">Player1</h3>
       <p class="bar-elements" id="playerScore">Wins : 0</p>
-      <button class="game-changer" type="button" name="button" id="gameButton">CHANGE GAME</button>
+      <button class="game-changer game-button hidden" type="button" name="button" id="gameButton">CHANGE GAME</button>
     </section>
     <section class="middle">
       <main>
-        <h1>Mouse  Elephant  Cat</h1>
-        <h2>choose your fighter!</h2>
-        <button class="easy-rules game-changer" id="easyGame">
+        <h1 id="header">Elephant, Mouse, Cat</h1>
+        <h2 id="message">choose your game!</h2>
+        <button class="easy-rules game-changer rules" id="easyGame">
           <h3 class="game-changer">CLASSIC</h3>
           <p class="game-changer">mouse > elephant</p><br>
           <p class="game-changer">elephant > cat</p><br>
           <p class="game-changer">cat > mouse</p>
         </button>
-        <button class="hard-rules game-changer" id="difficultGame">
+        <button class="hard-rules game-changer rules" id="difficultGame">
           <h3 class="game-changer">DIFFICULT</h3>
           <p class="game-changer">mouse > elephant & cucumber</p><br>
           <p class="game-changer">elephant > cucumber & cat</p><br>
@@ -31,34 +31,33 @@
           <p class="game-changer">ferret > mouse & elephant</p><br>
           <p class="game-changer">cucumber > ferret & cat</p>
         </button>
-        <section id="fighters">
-          <button class="hidden" type="button" name="button" id="mouse">
+        <section class="fighter-section" id="fighters">
+          <button class="fighter-button hidden" type="button" name="button" id="mouse">
             <img class="fighter-img" src="./assets/mouse.png" alt="mouse"><br/>
             <img class="emoji hidden" src="./assets/player.png" alt="player emoji" id="mousePick"/>
           </button>
-          <button class="hidden" type="button" name="button" id="elephant">
+          <button class="fighter-button hidden" type="button" name="button" id="elephant">
             <img class="fighter-img" src="./assets/elephant.png" alt="elephant"><br/>
             <img class="emoji hidden" src="./assets/player.png"/alt="player emoji" id="elephantPick">
           </button>
-          <button class="hidden" type="button" name="button" id="cat">
+          <button class="fighter-button hidden" type="button" name="button" id="cat">
             <img class="fighter-img" src="./assets/cat.png" alt="cat"><br/>
             <img class="emoji hidden" src="./assets/player.png" alt="player emoji" id="catPick"/>
           </button>
-          <button class="hidden" type="button" name="button" id="ferret">
+          <button class="fighter-button hidden" type="button" name="button" id="ferret">
             <img class="fighter-img" src="./assets/ferret.png" alt="ferret"><br/>
             <img class="emoji hidden" src="./assets/player.png" alt="player emoji" id="ferretPick"/>
           </button>
-          <button class="hidden" type="button" name="button" id="cucumber">
+          <button class="fighter-button hidden" type="button" name="button" id="cucumber">
             <img class="fighter-img" src="./assets/cucumber.png" alt="cucumber"><br/>
             <img class="emoji hidden" src="./assets/player.png" alt="player emoji" id="cucumberPick"/>
           </button>
         </section>
-        <section class="hidden" id="battleZone">
-          <img id="playerChoice" src="" alt="" />
-          <!-- Put stupid emojis -->
-          <img id="opponentChoice" src="" alt="" />
+        <section class="hidden battle-zone" id="battleZone">
+          <img id="playerChoice" src="" alt=""/>
+          <img id="opponentChoice" src="" alt=""/>
         </section>
-        <section id="victoryZone">
+        <section class="victory-zone" id="victoryZone">
           <section class="hidden loss-format" id="loss">
             <img class="hidden" id="sadCloud" src="./assets/sadCloud.gif" alt="rain cloud"/>
             <img id="sadParty" src="" alt=""/>

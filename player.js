@@ -1,9 +1,11 @@
 class Player {
-  constructor() {
-    this.selection = ""
+  constructor(name, token, winCount) {
+    this.name = name;
+    this.token = token;
+    this.selection = "";
     this.wins = false;
-    this.fighters = ["elephant", "cat", "mouse", "ferret", "cucumber"]
-    this.opponent = ""
+    this.fighters = ["elephant", "cat", "mouse", "ferret", "cucumber"];
+    this.winCount = this.displayScore(winCount);
   }
 
   recordScore() {
