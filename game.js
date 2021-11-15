@@ -2,8 +2,8 @@ class Game {
   constructor() {
     this.difficulty = ""
     this.announcement = ""
-    this.player = new Player(player1, "./assets/player.png", "playerScore")
-    this.computer = new Player(computer, "./assets/computer.png", "opponentScore")
+    this.player = new Player("player", "./assets/player.png", "playerScore")
+    this.computer = new Player("computer", "./assets/computer.png", "opponentScore")
     this.fighters = {
       elephant: ["cucumber", "cat"],
       cat: ["mouse", "ferret"],
