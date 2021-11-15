@@ -78,6 +78,7 @@ function click(selection) {
     game.player.selection = `${selection}`;
     game.computer.setOpponent(game.choices)
     game.declareWinner();
+    // game.player.takeTurn(game)
     displayFighter()
     displayBattleZone()
     updateScore()
@@ -105,7 +106,7 @@ function hide(toHide) {
 function displayFighter() {
   playerChoice.src = `./assets/${game.player.selection}.png`;
   playerChoice.alt = `${game.player.selection}`;
-  opponentChoice.src = `./assets/${game.computer.opponent}.png`;
+  opponentChoice.src = `./assets/${game.computer.selection}.png`;
   opponentChoice.alt = `${game.computer.opponent}`;
 }
 
@@ -126,7 +127,7 @@ function updateScore() {
 }
 
 function reset() {
-  loading = false;
+  game.loading = false;
   showHide([fighters], [victoryZone, sadCloud, document.getElementById(`${game.player.selection}Pick`)])
   show([gameButton])
   happyParty.src = "";

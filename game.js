@@ -4,7 +4,7 @@ class Game {
     this.announcement = ""
     this.player = new Player("player", "./assets/player.png", "playerScore")
     this.computer = new Player("computer", "./assets/computer.png", "opponentScore")
-    this.choices = ["elephant", "cat", "mouse", "ferret", "cucumber"];
+    this.choices = [];
     this.fighters = {
       elephant: ["cucumber", "cat"],
       cat: ["mouse", "ferret"],
@@ -27,7 +27,7 @@ class Game {
     if (this.player.selection === this.computer.selection) {
       this.announcement = `DRAW!!!`
     } else if (this.computer.selection === this.fighters[this.player.selection][0]  || this.computer.selection === this.fighters[this.player.selection][1]) {
-      this.announcement = `The ${player.selection} wins!!!`
+      this.announcement = `The ${this.player.selection} wins!!!`
       this.player.score("playerScore");
       this.player.wins = true
     } else {

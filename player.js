@@ -8,12 +8,16 @@ class Player {
   }
 
   setOpponent(array){
-    this.opponent = array[this.randomize(array)];
+    this.selection = array[this.randomize(array)];
   }
 
   randomize(array) {
     return Math.floor(Math.random() * array.length);
   }
+
+  // takeTurn(game) {
+  //   this.player.selection = `${selection}`
+  // }
 
   score(winner) {
     var currentScore = JSON.parse(localStorage.getItem(winner)) || 0
