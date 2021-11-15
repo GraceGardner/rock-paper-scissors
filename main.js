@@ -25,8 +25,6 @@ var header = document.getElementById("header");
 var game = new Game();
 var classicFighters = [mouseButton, elephantButton, catButton];
 var difficultFighters = [mouseButton, elephantButton, catButton, ferretButton, cucumberButton];
-var result = "";
-var loading = false;
 
 
 document.addEventListener("load", updateScore());
@@ -54,33 +52,33 @@ function displayWinner() {
 }
 
 function setEasy() {
-  loading = false;
+  game.loading = false;
   game.difficulty = "classic";
-  message.innerText = "choose your fighter"
-  game.selectDifficulty(player);
+  message.innerText = "choose your fighter";
+  game.selectDifficulty();
   hide([easyGame, difficultGame, ferretButton, cucumberButton]);
   show([fighters, gameButton]);
   show(classicFighters);
 }
 
 function setDifficult() {
-  loading = false;
+  game.loading = false;
   game.difficulty = "difficult"
   header.innerText = "Elephant, Mouse, Cat, Ferret, Cucumber"
   message.innerText = "choose your fighter"
-  game.selectDifficulty(player);
+  game.selectDifficulty();
   hide([easyGame, difficultGame]);
   show([fighters, gameButton]);
   show(difficultFighters);
 }
 
 function click(selection) {
-  if (!loading){
-    loading = true
-    player.selection = `${selection}`;
-    player.setOpponent()
-    game.declareWinner(player);
-    displayFighter(player)
+  if (!game.loading){
+    game.loading = true
+    game.player.selection = `${selection}`;
+    game.computer.setOpponent(game.choices)
+    game.declareWinner();
+    displayFighter()
     displayBattleZone()
     updateScore()
     hide([gameButton]);
@@ -104,36 +102,36 @@ function hide(toHide) {
   }
 }
 
-function displayFighter(player) {
-  playerChoice.src = `./assets/${player.selection}.png`;
-  playerChoice.alt = `${player.selection}`;
-  opponentChoice.src = `./assets/${player.opponent}.png`;
-  opponentChoice.alt = `${player.opponent}`;
+function displayFighter() {
+  playerChoice.src = `./assets/${game.player.selection}.png`;
+  playerChoice.alt = `${game.player.selection}`;
+  opponentChoice.src = `./assets/${game.computer.opponent}.png`;
+  opponentChoice.alt = `${game.computer.opponent}`;
 }
 
 function celebration() {
   message.innerText = game.announcement;
-  if (player.wins) {
-    happyParty.src = `./assets/${player.selection}Celebration.gif`;
+  if (game.player.wins) {
+    happyParty.src = `./assets/${game.player.selection}Celebration.gif`;
     showHide([win], [battleZone, loss])
   } else {
-    sadParty.src = `./assets/${player.selection}Loss.gif`;
+    sadParty.src = `./assets/${game.player.selection}Loss.gif`;
     showHide([loss, sadCloud], [battleZone, win])
   }
 }
 
 function updateScore() {
   playerScore.innerText = `Wins : ${game.player.displayScore('playerScore')}`
-  computerScore.innerText = `Wins : ${game.player.displayScore('opponentScore')}`
+  computerScore.innerText = `Wins : ${game.computer.displayScore('opponentScore')}`
 }
 
 function reset() {
   loading = false;
-  showHide([fighters], [victoryZone, sadCloud, document.getElementById(`${player.selection}Pick`)])
+  showHide([fighters], [victoryZone, sadCloud, document.getElementById(`${game.player.selection}Pick`)])
   show([gameButton])
   happyParty.src = "";
   sadParty.src = "";
-  player.wins = false;
+  game.player.wins = false;
   message.innerText = "choose your fighter"
 }
 
