@@ -2,7 +2,8 @@ class Game {
   constructor() {
     this.difficulty = ""
     this.announcement = ""
-    this.player = new Player()
+    this.player = new Player(player1, "./assets/player.png", "playerScore")
+    this.computer = new Player(computer, "./assets/computer.png", "opponentScore")
     this.fighters = {
       elephant: ["cucumber", "cat"],
       cat: ["mouse", "ferret"],
@@ -21,15 +22,15 @@ class Game {
   }
 
   declareWinner(player) {
-    if (this.player.selection === this.player.opponent) {
+    if (this.player.selection === this.computer.selection) {
       this.announcement = `DRAW!!!`
-    } else if (this.player.opponent === this.fighters[this.player.selection][0]  || this.player.opponent === this.fighters[this.player.selection][1]) {
+    } else if (this.computer === this.fighters[this.player.selection][0]  || this.computer === this.fighters[this.player.selection][1]) {
       this.announcement = `The ${player.selection} wins!!!`
       this.player.score("playerScore");
       this.player.wins = true
     } else {
       this.announcement = `Oh no! the ${this.player.selection} lost...`
-      this.player.score("opponentScore");
+      this.computer.score("opponentScore");
     }
   }
 }
