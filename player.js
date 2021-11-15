@@ -15,9 +15,9 @@ class Player {
     return Math.floor(Math.random() * array.length);
   }
 
-  // takeTurn(game) {
-  //   this.player.selection = `${selection}`
-  // }
+  takeTurn(selection) {
+    this.selection = `${selection}`
+  }
 
   score(winner) {
     var currentScore = JSON.parse(localStorage.getItem(winner)) || 0

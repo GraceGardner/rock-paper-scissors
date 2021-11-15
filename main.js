@@ -56,9 +56,7 @@ function setEasy() {
   game.difficulty = "classic";
   message.innerText = "choose your fighter";
   game.selectDifficulty();
-  hide([easyGame, difficultGame, ferretButton, cucumberButton]);
-  show([fighters, gameButton]);
-  show(classicFighters);
+  showHide([fighters, gameButton, mouseButton, elephantButton, catButton],[easyGame, difficultGame, ferretButton, cucumberButton])
 }
 
 function setDifficult() {
@@ -67,21 +65,18 @@ function setDifficult() {
   header.innerText = "Elephant, Mouse, Cat, Ferret, Cucumber"
   message.innerText = "choose your fighter"
   game.selectDifficulty();
-  hide([easyGame, difficultGame]);
-  show([fighters, gameButton]);
-  show(difficultFighters);
+  showHide([fighters, gameButton, mouseButton, elephantButton, catButton, ferretButton, cucumberButton], [easyGame, difficultGame])
 }
 
 function click(selection) {
   if (!game.loading){
-    game.loading = true
-    game.player.selection = `${selection}`;
-    game.computer.setOpponent(game.choices)
+    game.loading = true;
+    game.player.takeTurn(selection);
+    game.computer.setOpponent(game.choices);
     game.declareWinner();
-    // game.player.takeTurn(game)
-    displayFighter()
-    displayBattleZone()
-    updateScore()
+    displayFighter();
+    displayBattleZone();
+    updateScore();
     hide([gameButton]);
   }
 }
