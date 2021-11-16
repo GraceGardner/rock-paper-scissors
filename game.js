@@ -2,8 +2,9 @@ class Game {
   constructor() {
     this.difficulty = ""
     this.announcement = ""
-    this.player = new Player(player1, "./assets/player.png", "playerScore")
-    this.computer = new Player(computer, "./assets/computer.png", "opponentScore")
+    this.player = new Player("player", "./assets/player.png", "playerScore")
+    this.computer = new Player("computer", "./assets/computer.png", "opponentScore")
+    this.choices = [];
     this.fighters = {
       elephant: ["cucumber", "cat"],
       cat: ["mouse", "ferret"],
@@ -11,21 +12,22 @@ class Game {
       ferret: ["elephant", "mouse"],
       cucumber: ["ferret", "cat"]
     }
+    this.loading = false
   }
 
-  selectDifficulty(player) {
+  selectDifficulty() {
     if (this.difficulty === "classic") {
-      this.player.fighters = ["elephant", "cat", "mouse"];
+      this.choices = ["elephant", "cat", "mouse"];
     } else if (this.difficulty === "difficult") {
-      this.player.fighters = ["elephant", "cat", "mouse", "ferret", "cucumber"];
+      this.choices = ["elephant", "cat", "mouse", "ferret", "cucumber"];
     }
   }
 
-  declareWinner(player) {
+  declareWinner() {
     if (this.player.selection === this.computer.selection) {
       this.announcement = `DRAW!!!`
-    } else if (this.computer === this.fighters[this.player.selection][0]  || this.computer === this.fighters[this.player.selection][1]) {
-      this.announcement = `The ${player.selection} wins!!!`
+    } else if (this.computer.selection === this.fighters[this.player.selection][0]  || this.computer.selection === this.fighters[this.player.selection][1]) {
+      this.announcement = `The ${this.player.selection} wins!!!`
       this.player.score("playerScore");
       this.player.wins = true
     } else {
@@ -33,4 +35,16 @@ class Game {
       this.computer.score("opponentScore");
     }
   }
+
+    gameRest() {
+      this.loading = false;
+    }
 }
+
+  // A Game should include:
+  // Two Player instances ******
+  // A way to keep track of the data for the game board
+  // A way to keep track of the selected game type *****
+  // A way to check the Game’s board data for win conditions +++
+  // A way to detect when a game is a draw (no one has won) +++++
+  // A way to reset the Game’s board to begin a new game

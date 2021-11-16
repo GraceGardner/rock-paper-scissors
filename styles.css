@@ -54,10 +54,6 @@ table {
 	font-family: 'Montserrat', sans-serif;
 }
 
-button:hover {
-	opacity: 0.85;
-}
-
 button {
   border: 0;
   border-radius: 5px;
@@ -126,7 +122,7 @@ h2 {
 .game-changer:hover,
 .game-button:hover,
 .rules:hover {
-	border-color: #ff8e8e;
+	background-color: #ff8e8e;
 }
 
 .bar-elements{
