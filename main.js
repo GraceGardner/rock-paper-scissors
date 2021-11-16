@@ -23,24 +23,21 @@ var message = document.getElementById("message");
 var header = document.getElementById("header");
 
 var game = new Game();
-var classicFighters = [mouseButton, elephantButton, catButton];
-var difficultFighters = [mouseButton, elephantButton, catButton, ferretButton, cucumberButton];
-
 
 document.addEventListener("load", updateScore());
-gameButton.addEventListener("click", changeGame)
+gameButton.addEventListener("click", changeGame);
 easyGame.addEventListener("click", setEasy);
 difficultGame.addEventListener("click", setDifficult);
 fighters.addEventListener("click", function(event) {
-  var eventTarget = event.target.alt
+  var eventTarget = event.target.alt;
   if (eventTarget){
-  click(eventTarget)
+  click(eventTarget);
 }
 });
 
 
 function displayBattleZone() {
-  show([document.getElementById(`${game.player.selection}Pick`)])
+  show([document.getElementById(`${game.player.selection}Pick`)]);
   setTimeout(function() {showHide([battleZone], [fighters])}, 300);
   setTimeout(function() {displayWinner()}, 1000);
   setTimeout(function() {reset()}, 3000);
@@ -56,16 +53,16 @@ function setEasy() {
   game.difficulty = "classic";
   message.innerText = "choose your fighter";
   game.selectDifficulty();
-  showHide([fighters, gameButton, mouseButton, elephantButton, catButton],[easyGame, difficultGame, ferretButton, cucumberButton])
+  showHide([fighters, gameButton, mouseButton, elephantButton, catButton],[easyGame, difficultGame, ferretButton, cucumberButton]);
 }
 
 function setDifficult() {
   game.loading = false;
-  game.difficulty = "difficult"
-  header.innerText = "Elephant, Mouse, Cat, Ferret, Cucumber"
-  message.innerText = "choose your fighter"
+  game.difficulty = "difficult";
+  header.innerText = "Elephant, Mouse, Cat, Ferret, Cucumber";
+  message.innerText = "choose your fighter";
   game.selectDifficulty();
-  showHide([fighters, gameButton, mouseButton, elephantButton, catButton, ferretButton, cucumberButton], [easyGame, difficultGame])
+  showHide([fighters, gameButton, mouseButton, elephantButton, catButton, ferretButton, cucumberButton], [easyGame, difficultGame]);
 }
 
 function click(selection) {
@@ -109,30 +106,30 @@ function celebration() {
   message.innerText = game.announcement;
   if (game.player.wins) {
     happyParty.src = `./assets/${game.player.selection}Celebration.gif`;
-    showHide([win], [battleZone, loss])
+    showHide([win], [battleZone, loss]);
   } else {
     sadParty.src = `./assets/${game.player.selection}Loss.gif`;
-    showHide([loss, sadCloud], [battleZone, win])
+    showHide([loss, sadCloud], [battleZone, win]);
   }
 }
 
 function updateScore() {
-  playerScore.innerText = `Wins : ${game.player.displayScore('playerScore')}`
-  computerScore.innerText = `Wins : ${game.computer.displayScore('opponentScore')}`
+  playerScore.innerText = `Wins : ${game.player.displayScore('playerScore')}`;
+  computerScore.innerText = `Wins : ${game.computer.displayScore('opponentScore')}`;
 }
 
 function reset() {
   game.loading = false;
-  showHide([fighters], [victoryZone, sadCloud, document.getElementById(`${game.player.selection}Pick`)])
-  show([gameButton])
+  showHide([fighters], [victoryZone, sadCloud, document.getElementById(`${game.player.selection}Pick`)]);
+  show([gameButton]);
   happyParty.src = "";
   sadParty.src = "";
   game.player.wins = false;
-  message.innerText = "choose your fighter"
+  message.innerText = "choose your fighter";
 }
 
 function changeGame() {
-  showHide([easyGame, difficultGame], [battleZone, victoryZone, fighters, gameButton])
-  message.innerText = "choose your game"
-  header.innerText = "Elephant, Mouse, Cat"
+  showHide([easyGame, difficultGame], [battleZone, victoryZone, fighters, gameButton]);
+  message.innerText = "choose your game";
+  header.innerText = "Elephant, Mouse, Cat";
 }

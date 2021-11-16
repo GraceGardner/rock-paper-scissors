@@ -28,14 +28,4 @@ class Player {
   displayScore(player) {
     return JSON.parse(localStorage.getItem(player)) || 0
   }
-
-//   A player.js file that contains a Player class.
-// Player methods must include, but are not limited to:
-// constructor - properties should include: name (ex: 'Human'), token (ex: '👩🏻'), wins (ex: 0)
-// saveWinsToStorage
-// retrieveWinsFromStorage
-// takeTurn
-
-
-
 }
