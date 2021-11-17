@@ -1,3 +1,5 @@
+var win = document.getElementById("win");
+var loss = document.getElementById("loss");
 var easyGame = document.getElementById("easyGame");
 var difficultGame = document.getElementById("difficultGame");
 var gameButton = document.getElementById("gameButton");
@@ -8,13 +10,11 @@ var ferretButton = document.getElementById("ferret");
 var cucumberButton = document.getElementById("cucumber");
 var playerScore = document.getElementById("playerScore");
 var computerScore = document.getElementById("computerScore");
-var fighters = document.getElementById("fighters");
-var battleZone = document.getElementById("battleZone");
 var playerChoice = document.getElementById("playerChoice");
 var opponentChoice = document.getElementById("opponentChoice");
+var fighters = document.getElementById("fighters");
+var battleZone = document.getElementById("battleZone");
 var victoryZone = document.getElementById("victoryZone");
-var win = document.getElementById("win");
-var loss = document.getElementById("loss");
 var happyParty = document.getElementById("happyParty");
 var sadParty = document.getElementById("sadParty");
 var sadCloud = document.getElementById("sadCloud");
@@ -30,9 +30,9 @@ easyGame.addEventListener("click", setEasy);
 difficultGame.addEventListener("click", setDifficult);
 fighters.addEventListener("click", function(event) {
   var eventTarget = event.target.alt;
-  if (eventTarget){
-  click(eventTarget);
-}
+  if (eventTarget) {
+    click(eventTarget);
+  }
 });
 
 
