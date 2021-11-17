@@ -19,11 +19,11 @@ The user is given the choice of Mouse, Elephant and Cat for the classic game. Wh
 
 The user is also able to change which game they are playing by pressing the change game button.
 
-![giphy](https://user-images.githubusercontent.com/42048868/142074993-bd54642f-1b35-46f3-94e9-ca129bba4da6.gif)
-
-User can also choose to play the difficult game with five fighters to choose from; Mouse, Elephant, Cat, Ferret and Cucumber. 
-
 ![giphy-2](https://user-images.githubusercontent.com/42048868/142075029-c6ae4d9c-7d6e-4133-9e16-564a9cdfbbbc.gif)
+
+User can also choose to play the difficult game with five fighters to choose from; Mouse, Elephant, Cat, Ferret and Cucumber.
+
+![giphy](https://user-images.githubusercontent.com/42048868/142074993-bd54642f-1b35-46f3-94e9-ca129bba4da6.gif)
 
 
 
